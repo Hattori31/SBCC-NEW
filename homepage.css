@@ -1,0 +1,695 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+/* Header Section */
+.hero {
+    background: url('assets/home.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flow-root;
+    min-height: 100vh;
+    padding-top: 165px;
+    /* Add padding to prevent content from hiding under navbar */
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 60px;
+    gap: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+nav.scrolled {
+    background: rgba(15, 14, 14, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 18px 60px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    height: 105px;
+    width: 105px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+nav.scrolled .logo {
+    height: 85px;
+    width: 85px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #5c7cfa;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+nav ul li a:hover {
+    color: #f7c200;
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Buttons */
+.book-btn,
+.contact-btn {
+    background: linear-gradient(135deg, #5c7cfa, #4263eb);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-btn::before,
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.book-btn:hover::before,
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.book-btn {
+    margin-left: auto;
+    padding: 14px 28px;
+    box-shadow: 0 4px 15px rgba(92, 124, 250, 0.4);
+    border: 2px solid transparent;
+}
+
+.contact-btn {
+    padding: 14px 40px;
+    letter-spacing: 1px;
+}
+
+.book-btn:hover,
+.contact-btn:hover {
+    box-shadow: 0 8px 25px rgba(247, 194, 0, 0.6);
+    background: linear-gradient(135deg, #f7c200, #ffd700);
+    color: #0F0E0E;
+    transform: translateY(-3px);
+    border: 2px solid #f7c200;
+}
+
+/* End Of Navigation Bar */
+
+.home {
+    max-width: 1000px;
+    margin: 70px auto;
+    padding-left: 90px;
+    float: left;
+}
+
+.home h1 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.home p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 750px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Page 2 Section */
+.car {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #0F0E0E;
+    color: #fff;
+    max-height: 63vh;
+}
+
+#cartxt1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#cartxt2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: -150px;
+}
+
+#car-image {
+    width: 50%;
+    height: 100%;
+}
+
+/* End Of Page 2 Section */
+
+/* Page 3 Section */
+.service {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 64px 20px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 220px;
+    min-height: 260px;
+    padding: 16px 12px 20px;
+    gap: 6px;
+}
+
+.service-icon {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.service-info {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 6px 0 8px;
+    color: #0F0E0E;
+    min-height: 48px;
+}
+
+.service-desc {
+    font-size: 14px;
+    color: #0F0E0E;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* End Of Page 3 Section */
+
+/* Page 4 Section */
+.steps {
+    background-image: url("assets/blue-car.jpeg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 100px 20px 80px;
+}
+
+#stepstxt1 {
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    max-width: 900px;
+    margin: 0 auto 12px;
+    padding-top: 35px;
+}
+
+#stepstxt2 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 8px auto 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    max-width: 900px;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 100px;
+}
+
+.step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 222px;
+    min-height: 324px;
+    padding: 26px 12px 20px;
+    gap: 6px;
+    background: #0F0E0E;
+    border-radius: 14px;
+}
+
+.step-number {
+    padding-top: 5px;
+    font-size: 96px;
+    font-weight: lighter;
+    margin-bottom: 12px;
+}
+
+.step-info {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.step-desc {
+    font-size: 16px;
+    color: #fff;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* End Of Page 4 Section */
+
+/* Start of Car Brands Section */
+.car-brands {
+    background: url('assets/black bg.jpg');
+    padding-top: 60px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+#brandstxt1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.brands-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.brands-container::before,
+.brands-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+
+.brands-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(15, 14, 14, 1), transparent);
+}
+
+.brands-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(15, 14, 14, 1), transparent);
+}
+
+.brands-scroll {
+    display: flex;
+    gap: 100px;
+    animation: scroll 30s linear infinite;
+    padding-left: 100px;
+}
+
+.brand-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.brand-logo:hover {
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-150px * 6 - 100px * 6));
+    }
+}
+
+/* Opening Hours Section */
+.opening {
+    position: relative;
+    overflow: hidden;
+    background: url('assets/Booking.png') center/cover no-repeat;
+    background-attachment: fixed;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 90px;
+}
+
+#opening-hours {
+    color: #f7c200;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    max-width: 600px;
+    line-height: 1.1;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hours {
+    color: white;
+    font-size: 1.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* End of Opening Hours Section */
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #0F0E0E;
+    color: #0c00dc;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#testitxt1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#testitxt2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 60px;
+    color: #ccc;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #fff;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f7c200;
+    margin-top: auto;
+    text-align: right;
+}
+
+/* End of Testimonials Section */
+
+/* Footer Section */
+footer {
+    color: #FFFFFF;
+    background: url('assets/black bg.jpg');
+    padding: 42px 60px 32px 60px;
+    box-shadow: 1px 1px 20px 0px #000000;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.75rem;
+}
+
+.company-info {
+    flex: 2;
+    max-width: 400px;
+    order: 1;
+}
+
+.contact-info {
+    flex: 1;
+    order: 2;
+}
+
+.quick-links {
+    flex: 1;
+    order: 3;
+    margin-left: 60px;
+}
+
+.newsletter-section {
+    flex: 1;
+    order: 4;
+}
+
+#company-slogan {
+    font-size: 18px;
+    padding-left: 18px;
+    font-weight: bold;
+}
+
+.company-info .logo-2 {
+    margin-bottom: 15px;
+}
+
+.logo-2 {
+    height: 72px;
+}
+
+.company-info p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.quick-links,
+.contact-info,
+.newsletter-section {
+    flex: 1;
+}
+
+.follow {
+    margin-bottom: 2rem;
+}
+
+.soc-heading {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.contact-list,
+.quick-links-list {
+    list-style-type: none;
+}
+
+.contact-list {
+    font-size: 14px;
+}
+
+.quick-links-list {
+    font-size: 16px;
+}
+
+.quick-links-list li {
+    margin-bottom: 12px;
+}
+
+.contact-list li {
+    margin-bottom: 12px;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 2;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.quick-links-list a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.quick-links-list a:hover {
+    color: #f7c200;
+}
+
+#newsletter {
+    width: 85%;
+    background-color: #0c00dc;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+#newsletter:hover {
+    box-shadow: 0 6px 20px rgba(198, 211, 19, 0.6);
+    background: #f7c200;
+    color: #0F0E0E;
+    transform: translateY(-2px);
+}
+
+#subscribe {
+    width: 85%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+}
+
+.footer-lowest span {
+    font-size: 12px;
+    color: white;
+    display: inline;
+}
+
+.footer-under {
+    padding-top: 5px;
+}
+
+.footer-fr {
+    float: right;
+    padding-top: 4px;
+}
+
+.footer-fm {
+    padding: 6px;
+}
+
+.footer-fm a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive?? */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .home {
+        padding-left: 20px;
+    }
+
+    .steps-container {
+        gap: 30px;
+    }
+}
